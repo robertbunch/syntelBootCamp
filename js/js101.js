@@ -1,27 +1,27 @@
 	
-// Print stuff...
-// semi-colons are optional (like Python)
-// alert("Hello, World");
-// EVERYTHING inside the browser.... repeat EVERYTHING belongs to the window object
-// window.alert("Hello, World");
+Print stuff...
+semi-colons are optional (like Python)
+alert("Hello, World");
+EVERYTHING inside the browser.... repeat EVERYTHING belongs to the window object
+window.alert("Hello, World");
 
-// use the console to print. we will use this ALL the time
-// console.log("Hello, World");
+use the console to print. we will use this ALL the time
+console.log("Hello, World");
 
-// actually write to the window itself. The Document object, is where all the HTML is at
-// document.write("Hello, World");
+actually write to the window itself. The Document object, is where all the HTML is at
+document.write("Hello, World");
 
-// VARIABLES
-// Same as every other langauge... a variable is a place to stash something (number, string, array, object) that you could write youself, but a var is faster
-// Data-types available:
-// 1. Strings
-// 2. Numbers - JavaScript has only the Number data type
-// 2a. float
-// 2b. Integer
-// 3. Booleans
-// 4. Arrays
-// 5. Objects (Dictionary/Object)
-// 6. Symbol
+VARIABLES
+Same as every other langauge... a variable is a place to stash something (number, string, array, object) that you could write youself, but a var is faster
+Data-types available:
+1. Strings
+2. Numbers - JavaScript has only the Number data type
+2a. float
+2b. Integer
+3. Booleans
+4. Arrays
+5. Objects (Dictionary/Object)
+6. Symbol
 
 // JavaScript uses camelCase
 let name = "Robert Bunch";
@@ -36,7 +36,21 @@ let fullName = firstName + " " + lastName;
 console.log(fullName);
 const awesomeGuy = `${firstName} ${lastName}`;
 
-const theMeaningOfLife = `The meaning of life is ${40+2}`;
+const = 'SELECT * FROM users WHERE name = "' + name + '"'
+const = `SELECT * FROM users WHERE name = "${name}"`
+
+const multiLine = ''+
+		'<div>'+
+			'<p>text</p>'+
+		'</div>';
+
+const multiLineTL = `
+<div>
+	<p></p>
+</div>
+`
+
+const theMeaningOfLife = `The meaning of life is ${isHappy ? "42" : "No meaning."}`;
 console.log(theMeaningOfLife)
 
 
@@ -55,11 +69,15 @@ console.log(twoYearsAgo)
 const whatThe = fullName + 3
 console.log(typeof(whatThe))
 
+console.log("4"+5); //"45"
+
 // Booleans
 // 1 or 0, off or on, true or false, yes or no
 const theTruth = true;
 const theLie = false;
 console.log(typeof(theTruth))
+
+// if(!theTruth)
 
 // Incramenting...
 let num = 1;
@@ -85,9 +103,10 @@ console.log(num--);
 const classSize = 32;
 if(classSize > 20){
 	console.log("Wow, that's a big class!");
-}
-if(classSize >= 32){
+}else if(classSize >= 32){
 	console.log("Wow, you are at capacity!");
+}else{
+	console.log("Default")
 }
 
 const a = 3;
@@ -161,13 +180,20 @@ console.log(students.length)
 // 4. Booleans
 // 5. number
 
+// Map<String,String> myMap = new HashMap
+
+// const myContacts = new Map();
+
 const chaoticArray = [
 	`Mariano`,
 	436,
 	[
 		`orange juice`,
 		`JayZ`,
-		3
+		3,
+		{
+			age: 21
+		}
 	]
 ]
 
@@ -203,7 +229,19 @@ let nfcSouthTeams = [
 // SLICE DOES NOT MUTATE THE ARRAY
 const l = nfcSouthTeams.slice(1,3);
 console.log(l)
+// slice is also good for coping an array
+let arr = [1,2,3,4,5];
+let arr2 = arr.slice();
+arr2.push(6);
+console.log(arr);
 
+let obj = {
+  name: "Captain Jack Sparrow"
+}
+
+let obj2 = obj;
+obj2.friend = `Barbosa`;
+console.log(obj);
 
 // Fiter out even numbers
 const randomNumbers = [1,6,3,2,3,65,43,23425,2342,2345,2345];
@@ -218,7 +256,7 @@ console.log(evenNumbers);
 // all arrays have a map method
 // map will loop through the array and return
 // each time through a new element for the new array
-const evenNumberArray = randomNumbers.map(function(number){
+const evenNumberArray = randomNumbers.filter(function(number){
 	if(number % 2 == 0){
 		return number;
 	}
