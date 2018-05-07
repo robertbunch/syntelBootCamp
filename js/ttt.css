@@ -1,3 +1,38 @@
 body{
 	/* background: blue; */
 }
+
+/* hex value colors:
+0-9, a-f
+a = 10
+b=11 */
+
+/* 16*16*16
+RRGGBB
+00FF00
+FF00FF */
+
+h1{
+	color: #00FF00;
+}
+
+#board{
+	max-width: 640px;
+	min-width: 320px;
+	margin: auto;
+}
+.square{
+	background-color: :#fff;
+	border: 2px solid #000;
+	width: 185px;
+	height: 185px;
+	font-size: 60px;
+}
+.square:hover{
+	background-color: #ff0;
+}
+
+#message{ 
+	font-size:  40px;
+	min-height: 80px;
+}
