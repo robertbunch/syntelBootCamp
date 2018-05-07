@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./ttt.css">
+</head>
+<body>
+	<div class="container text-center">
+		<div class="col-sm-12 title">
+			<h1>Tic Tac Toe</h1>
+		</div>
+		<div class="row">
+			<div id="board">
+				<!-- This is where the board lives -->
+				<!-- TTT has 3 rows, 3 columns.
+				All rows, will have 3 buttons.
+				Each row will be called "board-row"
+				Each button will have a unique id for that button
+				Each button will also have a class of square -->
+
+				<div class="board-row">
+					<button id="A1" class="square">-</button>
+					<button id="B1" class="square">-</button>
+					<button id="C1" class="square">-</button>
+				</div>
+				<div class="board-row">
+					<button id="A2" class="square">-</button>
+					<button id="B2" class="square">-</button>
+					<button id="C2" class="square">-</button>
+				</div>
+				<div class="board-row">
+					<button id="A3" class="square">-</button>
+					<button id="B3" class="square">-</button>
+					<button id="C3" class="square">-</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./tictactoe.js"></script>
+</body>
+</html>
