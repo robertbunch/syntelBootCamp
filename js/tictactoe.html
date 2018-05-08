@@ -4,6 +4,11 @@
 	<title></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./ttt.css">
+	<style type="text/css" media="screen">
+		#num-players{
+			margin-bottom: 10px;
+		}
+	</style>
 </head>
 <body>
 	<div class="container text-center">
@@ -14,6 +19,11 @@
 
 			<div id="message">
 				<!-- Messages will go here -->
+			</div>
+
+			<div id="num-players">
+				<button onclick="startGame(1)" class="btn btn-warning">One Player</button>
+				<button onclick="startGame(2)" class="btn btn-success">Two Player</button>
 			</div>
 
 			<div id="board">

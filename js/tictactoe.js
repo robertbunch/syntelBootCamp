@@ -1,11 +1,13 @@
 // GLOBALS
 // Initialize who's turn it is
 let whosTurn = 1;
-let gameOver = false;
+let gameOver = true;
 const messageDiv = document.getElementById('message');
 // A place to keep the squares each player has for checkWin
 let player1Squares = [];
 let player2Squares = [];
+
+let numPlayers = 0;
 
 const winningCombos = [
 	['A1','B1','C1'], //ROW 1
@@ -30,6 +32,11 @@ for(let i = 0; i < squares.length; i++){
 	})
 }
 
+function startGame(num){
+	gameOver = false;
+	numPlayers = num;
+}
+
 function markSquare(clickedSquare){
 	// console.log("User clicked a sqaure");
 	// console.log(squareID)
@@ -51,12 +58,26 @@ function markSquare(clickedSquare){
 			player1Squares.push(clickedSquare.id);
 			// console.log(player1Squares);
 			checkWin(1,player1Squares);
+			if(numPlayers == 1){
+				computerTurn();
+			}
 		}else{
 			clickedSquare.innerHTML = `O`;
 			whosTurn = 1;
 			player2Squares.push(clickedSquare.id);
 			checkWin(2,player2Squares);
 		}
+	}
+}
+
+function computerTurn(){
+	stillLooking = true;
+	let computerSquare = '';
+	while (stillLooking){
+		const rand = Math.floor(Math.random(8));
+		computerSquare = squares[rand];
+		console.log(computerSquare);
+		stillLooking = false;
 	}
 }
 

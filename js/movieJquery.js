@@ -25,3 +25,8 @@ $(document).ready(function(){
 			$('#movie-grid').html(nowPlayingHTML);
 		})
 });
+
+
+
+// name = "Shahar";
+// x = "SELECTY * FROM %s WHERE uid=%d AND name = %s AND " % (name, uid, bame)
