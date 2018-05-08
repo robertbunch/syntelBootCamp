@@ -11,5 +11,6 @@ $(document).ready(()=>{
 		// const userCity = document.getElmenetById('city').value
 		// console.log(userCity);
 		const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&units=imperial&appid=${apiKey}`
+		console.log(weatherUrl);
 	});
 })
