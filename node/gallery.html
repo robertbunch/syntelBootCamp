@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- title used by the browser tab system and all the SEO stuff -->
+	<title>Places to visit in Georgia!</title>
+	<!-- Embedded styles. These will apply to our HTML -->
+	<style>
+		/* Styles to come... */
+		#gallery-wrapper{
+			text-align: center;
+		}
+/* 		h1{
+			text-align: left;
+		} */
+		.thumb{
+			width: 15%;
+			/* width: 1000px; */
+			border:  4px solid #0f0;
+		}
+		img{
+			/* width: 1000px !important; */
+			width: 1000px;
+		}
+
+
+</style>
+</head>
+<body>
+	<!-- A wrapper for the entire gallery -->
+	<!-- A div does nothing other than help us organize our page -->
+	<div id="gallery-wrapper">
+		<!-- TOP SECTION -->
+		<div id="top-section">
+			<h1>A photo gallery made with CSS, HTML, and a tiny bit of JS and lot of love.</h1>
+		</div>
+		<!-- MIDDLE SECTION -->
+		<div id="middle-section">
+			<!-- <h1>Middle Section</h1> -->
+			<img class="thumb" src="./ga_pics/arabia_mnt.jpg" onclick="bigPic.src = this.src" />
+			<img class="thumb" src="./ga_pics/callaway_gardens.jpg" onclick="bigPic.src = this.src" />
+			<img class="thumb" src="./ga_pics/Etowah_Indian_Mounds.jpg"  onclick="bigPic.src = this.src" />
+			<img class="thumb" src="./ga_pics/prov_state_canyon.jpg"  onclick="bigPic.src = this.src" />
+			<img class="thumb" src="./ga_pics/wormsloe.jpg" onmousehover="bigPic.src = this.src" />
+		</div>
+		<!-- BOTTOM SECTION -->
+		<div id="bottom-section">
+			<!-- <h1>Bottom Section</h1> -->
+			<img src="./ga_pics/prov_state_canyon.jpg" name="bigPic"/>
+		</div>
+		<div></div>
+	</div>
+
+	<div></div>
+
+</body>
+</html>

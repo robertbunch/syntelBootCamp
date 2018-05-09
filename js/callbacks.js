@@ -22,3 +22,10 @@ function a(x){
 // console.log(a(2))
 a(2)(3);
 
+
+const setTimeout = function(callbackToRunLater, timeToWait){
+	if (timeToWait has passed){
+		callbackToRunLater()
+	}
+}
+
