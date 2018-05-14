@@ -16,13 +16,20 @@ router.get('/', function(req, res, next) {
 	let message = req.query.msg;
 	if(message === 'added'){
 		message = `Your task was added!`;
+	}else if(message === 'deleted'){
+		message = 'Your task was deleted';
 	}
 
-  res.render('index', { 
-  	message,
-  	title: 'Express',
-  	taskArray: []
-  });
+	const selectQuery = `SELECT * FROM tasks`;
+
+	connection.query(selectQuery,(error, results)=>{
+		if (error){throw error;}
+	  res.render('index', { 
+	  	message,
+	  	title: 'Express',
+	  	taskArray: results
+	  });
+	})
 });
 
 router.post('/addItem',(req, res)=>{
@@ -59,6 +66,16 @@ router.post('/addItem',(req, res)=>{
 	})
 
 	// res.json(req.query);
+})
+
+router.get('/delete/:id',(req,res)=>{
+	const idToDelete = req.params.id;
+	const deleteQuery = `DELETE FROM tasks
+	WHERE id = ?`;
+	connection.query(deleteQuery,[idToDelete],(error, results)=>{
+		if(error){throw error;}
+		res.redirect('/?msg=deleted');		
+	})
 })
 
 module.exports = router;
