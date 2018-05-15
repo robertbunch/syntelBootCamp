@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Movie App</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+<% include head %>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-  </head>
-  <body>
-
+<body>
   	<div class="container">
   		<div class="row">
   			<div class="col-sm-12 movies">
   				<% for(let i = 0; i<nowPlayingData.length; i++){ %>
 
   					<div class="col-sm-3">
-  						<img src="<%=imageBaseUrl+nowPlayingData[i].poster_path %>" />
+  						<a href="/movie/<%=nowPlayingData[i].id%>">
+  							<img src="<%=imageBaseUrl+nowPlayingData[i].poster_path %>" />
+  						</a>
   					</div>
 
   				<% } %>

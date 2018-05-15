@@ -1,0 +1,22 @@
+<% include head %>
+
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 movie">
+				<h1>
+					<%= currentMovie.title %>
+				</h1>
+				<img src="<%=imageBaseUrl+currentMovie.poster_path%>" />
+				<h2>
+					The budget for this film was: <%= currentMovie.budget%>
+				</h2>
+				<p>
+					<%=currentMovie.overview%>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
