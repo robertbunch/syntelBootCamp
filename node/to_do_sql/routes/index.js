@@ -59,9 +59,11 @@ router.post('/addItem',(req, res)=>{
 
 	console.log(`$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ READY TO RUN THE QUERY $$$$$$$$$$$$$$$$$$$$$$`);
 
-	connection.query(insertQuery,[taskName,taskDate],(error, results)=>{
+		const queryArgs = [taskName,taskDate];
+
+	connection.query(insertQuery,queryArgs,(error, results)=>{
 		if(error) throw error;
-		console.log(`=================QUERY DID NOT ERROR< SENDING TO THE HOMEPAGE===================`)
+		console.log(`=================QUERY DID NOT ERROR...SENDING TO THE HOMEPAGE===================`)
 		res.redirect('/?msg=added')
 	})
 
