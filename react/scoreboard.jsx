@@ -7,6 +7,13 @@ function Team(props){
 			<div className="team-name">
 				<h3>{props.teamName}</h3>
 			</div>
+			<div className="counter">
+				{/* btn-danger = Red Button */ }
+				<button className="btn btn-danger">-</button>
+				<div className="team-score">0</div>
+				{/* btn-success = green button */ }
+				<button className="btn btn-success">+</button>
+			</div>
 		</div>		
 	)
 }

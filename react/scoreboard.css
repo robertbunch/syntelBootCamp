@@ -7,7 +7,18 @@
 }
 .team{
 	float: left;
-	width:45%;
+	width:50%;
+}
+
+.team-score{
+	display: inline-block;
+	margin: 10px;
+	color: white;
+	font-size: 26px;
+}
+
+.team-name{
+	color: white;
 }
 
 .team.Boston{
