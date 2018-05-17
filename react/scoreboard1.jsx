@@ -1,15 +1,3 @@
-// React components are automatically passed 1 param. Props
-
-function Team(props){
-	console.log(props)
-	return(
-		<div className={`team ${props.teamName}`}>
-			<div className="team-name">
-				<h3>{props.teamName}</h3>
-			</div>
-		</div>		
-	)
-}
 // React is a bunch of legos. The legos are called components.
 // A component is a fancy name for a class-like UI thing.
 // A component is REGULAR JAVASCRIPT UNTIL you get inside 
@@ -23,9 +11,17 @@ function Scoreboard(){
 			<div className="header">
 				<h1>Celtics vs Cavs - Game {1+2}</h1>
 			</div>
-			<div className="teams">
-				<Team teamName="Boston"/>
-				<Team teamName="Cleveland" />
+		</div>
+		<div className="teams">
+			<div className="team">
+				<div className="team-name">
+					<h3>Boston</h3>
+				</div>
+			</div>
+			<div className="team">
+				<div className="team-name">
+					<h3>Cleveland</h3>
+				</div>
 			</div>
 		</div>
 	)
@@ -38,5 +34,12 @@ function Scoreboard(){
 ReactDOM.render(
 	// <h1>Sanity Check!</h1>,
 		<Scoreboard />,
+		// <Scoreboard />
+		// <Scoreboard />
+		// <Scoreboard />
+		// <Scoreboard />
+		// <Scoreboard />
+		// <Scoreboard />
+		// <Scoreboard />,
 	document.getElementById('root')
 )
