@@ -54,10 +54,22 @@ const Coin = React.createClass(
 
 )
 
+function Flip(){
+	return (
+		<div>
+			<Coin />
+			<Coin />
+			<Coin />
+			<Coin />
+			<Coin />
+		</div>		
+	)
+}
+
 // 2 args:
 // 1. What
 // 2. Where
 ReactDOM.render(
-	<Coin />,
+	<Flip />,
 	document.getElementById('root')
 )
