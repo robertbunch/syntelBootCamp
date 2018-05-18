@@ -41,11 +41,11 @@ function Badge(props){
 function Comment(props) {
   // console.log(props)
 
-  const badges = props.data.userBadge.map((badgeTitle)=>{
+  const badges = props.data.userBadge.map((badgeTitle,  index)=>{
     return (
       <Badge badgeTitle = {badgeTitle}/>
     )
-  })
+  });
   // console.log(badges)
 
   return (
