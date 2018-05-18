@@ -10,7 +10,10 @@ const data = [
     userBadge: [ 
       'Superman',
       'Herald',
-      'Engineer'
+      'Engineer',
+      'Taco Eater',
+      'Cav Lover',
+      'Wears Black'
     ]
   },
   {
@@ -36,7 +39,15 @@ function Badge(props){
 }
 
 function Comment(props) {
-  console.log(props)
+  // console.log(props)
+
+  const badges = props.data.userBadge.map((badgeTitle)=>{
+    return (
+      <Badge badgeTitle = {badgeTitle}/>
+    )
+  })
+  // console.log(badges)
+
   return (
   <div className="Comment">
     <div className="UserInfo">
@@ -58,9 +69,7 @@ function Comment(props) {
     </div>
 
     <div className="UserBadges">
-      <Badge badgeTitle = {props.data.userBadge[0]}/>
-      <Badge badgeTitle = {props.data.userBadge[1]}/>
-      <Badge badgeTitle = {props.data.userBadge[2]}/>
+      {badges}
     </div>
   </div>
   );
