@@ -6,6 +6,29 @@ const Counter = React.createClass({
 			score: 0
 		}
 	},
+
+	losePoint: function(){
+		// this.state.score--; 
+		// EVIL
+		// BAD
+		// DANGER
+		// NEW ORLEANS SAINTS
+		if(this.state.score > 0){
+			this.setState({
+				score: this.state.score - 1
+			})
+		}
+	},
+	addPoint: function(){
+		// this.state.score++; NO NO NO NO NO NO
+		// DONT DO THIS!!
+		// DONT WATCH ANY ADAM SANDLER MOVIES
+		const currentScore = this.state.score;
+		const newScore = currentScore + 1;
+		this.setState({
+			score: newScore
+		})
+	},
 	render: function(){
 		return(
 			<div className="counter">
