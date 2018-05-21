@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import $ from 'jquery';
 import Poster from './Poster';
+import SearchBar  from './SearchBar';
 
 class App extends Component {
   // constructor runs ONCE. When the object/component is created
@@ -13,6 +14,7 @@ class App extends Component {
     this.state = {
       moviePosters: []
     }
+    this.newUserSearch = this.newUserSearch.bind(this);
   }
 
   // special lifecycle method
@@ -28,6 +30,16 @@ class App extends Component {
       });
     });
   };
+
+  newUserSearch(movieTitle){
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=fec8b5ab27b292a68294261bb21b04a5&query=${movieTitle}`;
+    $.getJSON(url,(movieData)=>{
+      console.log(movieData);
+      this.setState({
+        moviePosters: movieData.results
+      })
+    })
+  }
 
 // EVERY React component MUST have a render
   render() {
@@ -46,7 +58,8 @@ class App extends Component {
     // return a single dom element (jsx_)
     return (
       <div className="App">
-        <h1>Sanity Check</h1>
+        <h1>Movies Now Playing</h1>
+        <SearchBar searchFunction={this.newUserSearch} />
         {posters}
       </div>
     );
@@ -54,3 +67,4 @@ class App extends Component {
 }
 
 export default App;
+
