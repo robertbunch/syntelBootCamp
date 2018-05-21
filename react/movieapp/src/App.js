@@ -3,6 +3,12 @@ import './App.css';
 import $ from 'jquery';
 import Poster from './Poster';
 import SearchBar  from './SearchBar';
+// add react router
+// BrowserRouter as Router in the MAIN component in our app now
+// Link is the new <a href="">
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
+import About from './About';
 
 class App extends Component {
   // constructor runs ONCE. When the object/component is created
@@ -57,11 +63,29 @@ class App extends Component {
     console.log("Render is running...")
     // return a single dom element (jsx_)
     return (
-      <div className="App">
-        <h1>Movies Now Playing</h1>
-        <SearchBar searchFunction={this.newUserSearch} />
-        {posters}
-      </div>
+      // ROUTER GOES AROUND EVERYTHING
+      <Router>
+        <div className="App">
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+          </ul>
+
+          <h1>Movies Now Playing</h1>
+          <SearchBar searchFunction={this.newUserSearch} />
+          <Route path="/about" render={About} />
+{/*          You dont always have to give it a component.
+          You can give it a callback which can render componenets*/}
+          <Route exact path="/" render={()=>{
+            return(
+              <div>
+                {posters}
+              </div>
+            )
+          }} />
+          
+        </div>
+      </Router>
     );
   }
 }
