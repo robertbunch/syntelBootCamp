@@ -59,7 +59,7 @@ class Car{
 }
 
 const jimsCar = new Car(`Tesla`,`S`,`Black`);
-console.log(jimsCar[CARMAKE])
+console.log(jimsCar.color)
 jimsCar.color = `Red`
 console.log(jimsCar.color)
 
