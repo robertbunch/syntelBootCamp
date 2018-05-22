@@ -9,6 +9,7 @@ import SearchBar  from './SearchBar';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 import About from './About';
+import MovieSearch from './MovieSearch';
 
 class App extends Component {
   // constructor runs ONCE. When the object/component is created
@@ -72,8 +73,8 @@ class App extends Component {
           </ul>
 
           <h1>Movies Now Playing</h1>
-          <SearchBar searchFunction={this.newUserSearch} />
-          <Route path="/about" render={About} />
+          <Route path="/" component={SearchBar} />
+          <Route path="/about" component={About} />
 {/*          You dont always have to give it a component.
           You can give it a callback which can render componenets*/}
           <Route exact path="/" render={()=>{
@@ -83,7 +84,7 @@ class App extends Component {
               </div>
             )
           }} />
-          
+          <Route path="/search/:searchTerm" component={MovieSearch} />
         </div>
       </Router>
     );
