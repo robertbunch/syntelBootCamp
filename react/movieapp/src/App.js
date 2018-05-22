@@ -13,7 +13,9 @@ import SearchBar  from './SearchBar';
 import About from './About';
 import MovieSearch from './MovieSearch';
 import SingleMovie from './SingleMovie';
-
+import BootstrapNavBar from './BootstrapNavBar';
+import Login from './Login';
+import Register from './Register';
 
 class App extends Component {
   // constructor runs ONCE. When the object/component is created
@@ -72,14 +74,11 @@ class App extends Component {
       // ROUTER GOES AROUND EVERYTHING
       <Router>
         <div className="App">
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-          </ul>
-
-          <h1>Movies Now Playing</h1>
+          <Route path="/" component={BootstrapNavBar} />
           <Route path="/" component={SearchBar} />
           <Route path="/about" component={About} />
+          <Route exact path = "/login" component={Login} />
+          <Route exact path = "/register" component={Register} />
 {/*          You dont always have to give it a component.
           You can give it a callback which can render componenets*/}
           <Route exact path="/" render={()=>{
