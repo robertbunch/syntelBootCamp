@@ -1,21 +1,25 @@
+// Contrib modules
 import React, { Component } from 'react';
 import './App.css';
 import $ from 'jquery';
-import Poster from './Poster';
-import SearchBar  from './SearchBar';
 // add react router
 // BrowserRouter as Router in the MAIN component in our app now
 // Link is the new <a href="">
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
+// Custom Components
+import Poster from './Poster';
+import SearchBar  from './SearchBar';
 import About from './About';
 import MovieSearch from './MovieSearch';
+import SingleMovie from './SingleMovie';
+
 
 class App extends Component {
   // constructor runs ONCE. When the object/component is created
-  constructor(props){
+  constructor(){
     // call super in order to pass up to React.Component whatever it needs
-    super(props);
+    super();
     // After super, we can use the word "this"
     // set the initial state of the var: this.state.moviePosters to []
     this.state = {
@@ -30,6 +34,7 @@ class App extends Component {
   componentDidMount(){
     console.log("THe component has mounted!");
     const url = 'http://api.themoviedb.org/3/movie/now_playing?api_key=fec8b5ab27b292a68294261bb21b04a5'
+    // axios.get(url)
     $.getJSON(url,(movieData)=>{
       console.log(movieData);
       this.setState({
@@ -85,6 +90,7 @@ class App extends Component {
             )
           }} />
           <Route path="/search/:searchTerm" component={MovieSearch} />
+          <Route path="/movie/:movieId" component={SingleMovie} />
         </div>
       </Router>
     );
