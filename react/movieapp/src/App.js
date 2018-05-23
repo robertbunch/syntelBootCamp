@@ -76,7 +76,7 @@ class App extends Component {
         <div className="App">
           <Route path="/" component={BootstrapNavBar} />
           <Route path="/" component={SearchBar} />
-          <Route path="/about" component={About} />
+          <Route exact path="/about" component={About} />
           <Route exact path = "/login" component={Login} />
           <Route exact path = "/register" component={Register} />
 {/*          You dont always have to give it a component.
@@ -88,8 +88,8 @@ class App extends Component {
               </div>
             )
           }} />
-          <Route path="/search/:searchTerm" component={MovieSearch} />
-          <Route path="/movie/:movieId" component={SingleMovie} />
+          <Route exact path="/search/:searchTerm" component={MovieSearch} />
+          <Route exact path="/movie/:movieId" component={SingleMovie} />
         </div>
       </Router>
     );
