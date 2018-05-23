@@ -16,6 +16,14 @@ router.post('/register', (req, res)=>{
 	// res.json("test")
 	// we now have the user name email and password
 	// Insert them into the database
+	const insertUserQuery = `INSERT into users
+		(email, password, token)
+			VALUES
+		(?, ?, ?)`;
+		connection.query(insertUserQuery, [email, password,""],(error, results)=>{
+			if(error){throw error;}
+			res.json("User inserted")
+		})
 
 
 });
