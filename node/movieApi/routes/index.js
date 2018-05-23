@@ -6,11 +6,14 @@ const creds = require('../config/creds');
 const connection = mysql.createConnection(creds);
 connection.connect();
 
+// include bcrypt for hasing and validating passwords
+const bcrypt = require('bcrypt-nodejs');
 
 router.post('/register', (req, res)=>{
 	// console.log(req);
 	// req.BODY
 	const password = req.body.password;
+	const hashedPassword = bcrypt.hashSync(password);
 	const email = req.body.email;
 	console.log(email, password);
 	// res.json("test")
@@ -20,7 +23,7 @@ router.post('/register', (req, res)=>{
 		(email, password, token)
 			VALUES
 		(?, ?, ?)`;
-		connection.query(insertUserQuery, [email, password,""],(error, results)=>{
+		connection.query(insertUserQuery, [email, hashedPassword,""],(error, results)=>{
 			if(error){throw error;}
 			res.json("User inserted")
 		})
