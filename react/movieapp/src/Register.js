@@ -6,9 +6,26 @@ class Register extends Component{
 
 	handleRegister(event){
 		event.preventDefault();
-		// console.log("Test")
-		axios.post(`http://localhost:3030/register`).then((registerData)=>{
-			console.log(registerData);
+		// console.log("Test")\
+		//axios.get =  $.getJSON
+		//axios.post =  $.ajax({method:post})
+		// axios.post(`http://localhost:3030/register`).then((registerData)=>{
+		// 	console.log(registerData);
+		// })
+
+		// axios is how we make our AJAX requests
+		// in other words, how React talks to Express/Spring
+		const email = document.getElementById('email').value;
+		const password = document.getElementById('pwd').value;
+		console.log(password);
+		console.log(email);
+		axios({
+			method: "POST",
+			url: "http://localhost:3030/register",
+			data: {
+				email,
+				password
+			}
 		})
 	}
 
