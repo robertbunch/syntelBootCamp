@@ -3,6 +3,11 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 class Register extends Component{
+	constructor(){
+		super();
+		this.handleRegister = this.handleRegister.bind(this);
+	}
+
 
 	handleRegister(event){
 		event.preventDefault();
@@ -19,14 +24,28 @@ class Register extends Component{
 		const password = document.getElementById('pwd').value;
 		console.log(password);
 		console.log(email);
-		axios({
+		const registerRequest = axios({
 			method: "POST",
 			url: "http://localhost:3030/register",
 			data: {
 				email,
 				password
 			}
+		});
+
+		registerRequest.then((registerData)=>{
+			console.log(registerData)
+			if(registerData.data.msg === "registerSuccess"){
+// localStorage is the new cookie. 
+// Cookies are inherently insecure. They also can only hold
+// 4k. They are sent in their entirety on EVERY request.
+// localStorage can hold 5mb, the data is NOT sent to the server (unless you tell it to).
+// localStorage is just a HashMap.
+				localStorage.setItem('token',registerData.data.token)
+				this.props.history.push('/')
+			}
 		})
+
 	}
 
   render(){
