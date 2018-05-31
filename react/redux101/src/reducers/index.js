@@ -24,6 +24,6 @@ import HomeReducer from './HomeReducer';
 // combineReducers takes 1 arg, an object.
 
 const rootReducer = combineReducers({
-	home: HomeReducer
+	home: HomeReducer,
 })
 export default rootReducer;

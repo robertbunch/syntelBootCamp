@@ -9,5 +9,9 @@
 // 2. info that came from the dispatcher
 
 export default function(state = "Home Page Text", action){
+	console.log("Reducer running")
+	if(action.type === "UPDATE_HOME"){
+		return action.payload
+	}
 	return state;
 }

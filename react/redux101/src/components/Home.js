@@ -14,6 +14,7 @@ class Home extends Component{
 
 // We have connect. Great. But we need a way to get the stuff in teh store to map to the props of this Component.
 // it takes one param, state
+// mapStateToProps = Map Redux state to this component props
 function mapStateToProps(state){
 	// THE STATE PARAMETER IS THE ROOT REDUCER
 	// this function will return an object, each property will be mapped to this components props, each value will be a peice of state, or a property of the rootreducer
@@ -27,3 +28,21 @@ function mapStateToProps(state){
 // Connect is a function and we pass that function mapStateToProps
 // Connect RETURNS A FUNCTION, which expects the component
 export default connect(mapStateToProps)(Home);
+
+
+// function connect(callBack){
+// 	callBack(rootReducer)
+// }
+
+// $.getJSON(url,(data)=>{
+
+// })
+
+// const $ = {
+// 	getJSON: function(url,callBack){
+// 		// does AJAX.
+// 		// Get stuff back. 
+// 		// Call it ajaxData
+// 		callBack(ajaxData)
+// 	}
+// }
