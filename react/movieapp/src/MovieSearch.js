@@ -11,8 +11,14 @@ class MovieSearch extends Component{
 	}
 	// componentDidMount is where our initial AJAX reqeusts go
 	componentDidMount(){
-		const userSearchTerm = this.props.match.params.searchTerm;
-		const searchUrl = `http://api.themoviedb.org/3/search/movie?query=${userSearchTerm}&api_key=fec8b5ab27b292a68294261bb21b04a5`;
+		let searchUrl;
+		if(this.props.location.pathname === '/'){
+			console.log("On Home page");
+		    searchUrl = 'http://api.themoviedb.org/3/movie/now_playing?api_key=fec8b5ab27b292a68294261bb21b04a5'
+		}else{
+			const userSearchTerm = this.props.match.params.searchTerm;
+			searchUrl = `http://api.themoviedb.org/3/search/movie?query=${userSearchTerm}&api_key=fec8b5ab27b292a68294261bb21b04a5`;
+		}
 
 		// const axiosRequest = axios.get(searchUrl);
 		// axios.then(()=>{
